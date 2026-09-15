@@ -2,7 +2,6 @@ import { NavLink } from "react-router";
 import "./bottomLayout.css"
 import { FaCalendarMinus, FaUser, FaClock, FaCommentDots} from "react-icons/fa";
 
-
 export default function BottomLayout(){
     const menuItem = [
         {

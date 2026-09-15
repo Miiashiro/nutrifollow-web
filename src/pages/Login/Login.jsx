@@ -18,8 +18,12 @@ export default function Login() {
             const dataLogin = {email, password}
 
             const response = await api.post('/login', dataLogin)
-            console.log(response)
+
+            localStorage.setItem("user_id", response.data.id)
+            localStorage.setItem("name", response.data.name)
+
             alert("Login com sucesso")
+
             navigate("/Home")
         } catch(error){
             console.log(error)

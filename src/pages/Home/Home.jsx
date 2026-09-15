@@ -51,7 +51,7 @@ export default function Home() {
 
     return (
         <div className="home">
-            <TopLayout name="Claudio" />
+            <TopLayout/>
 
             <div className="interface">
                 <div className="card-mission">
