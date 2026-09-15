@@ -1,0 +1,110 @@
+.home{
+    background-color: #fcfcfc;
+    height: 100vh;
+}
+
+.home > .interface{
+    position: relative;
+    margin-top: -15px;
+    z-index: 2;
+}
+
+.card-mission{
+    padding: 15px;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-txt > p:first-child{
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.card-txt > p:last-child{
+    font-size: 1rem;
+    color: #7c7c7c;
+    font-weight: bold;
+}
+
+.graphic{
+    text-align: center;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.graphic > p{
+    font-size: 1rem;
+    color: #7c7c7c;
+    font-weight: bold;
+}
+
+.card-meal{
+    background-color: white;
+    margin-top: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.card-meal .meal{
+    padding: 10px 0 10px 0;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-meal .meal:last-child{
+    border-bottom: none;
+}
+
+.meal > .left{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.icon > p {
+    font-size: 1.7rem;
+}
+
+.description > .meal-name{
+    font-weight: bold;
+}
+
+.description > .mealtime{
+    font-size: 15px;
+    color: #7c7c7c;
+    font-weight: bold;
+}
+
+.badge-sent, .badge-pending{
+    font-weight: bold;
+    padding: 8px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.badge-sent{
+    background-color: #E7F7EC;
+    color: #5FB98A;
+}
+
+.badge-pending{
+    background-color: #FFF4E0;
+    color: #F0A94D;
+}
+
+.check-circle{
+    font-size: 1.2rem;
+}

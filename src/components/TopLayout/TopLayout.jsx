@@ -4,7 +4,7 @@ import { FaRegBell } from "react-icons/fa";
 
 export default function TopLayout({ name }) {
     return (
-        <div className="container-top">
+        <header className="container-top">
             <div className="interface">
                 <div className="left-top">
                     <span> Bom dia, {name}! ☀️</span>
@@ -15,6 +15,6 @@ export default function TopLayout({ name }) {
                     <FaRegBell />
                 </div>
             </div>
-        </div>
+        </header>
     )
 }

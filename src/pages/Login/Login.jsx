@@ -3,7 +3,7 @@ import "./login.css"
 import img from "../../img/logo.png"
 import { Input, PasswordInput, Button } from "@mantine/core"
 import { Lock, User } from "@phosphor-icons/react"
-import api from "../api"
+import api from "../../api"
 import { useNavigate } from "react-router"
 
 export default function Login() {
