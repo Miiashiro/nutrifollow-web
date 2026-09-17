@@ -1,0 +1,84 @@
+.meal{
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ .card-meal .meal:last-child{
+    border-bottom: none;
+}
+
+.meal > .left{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+/* Sem foto (Home) — ícone e texto lado a lado, como já estava */
+.meal .info {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+/* Com foto (Histórico) — vira: foto | (ícone + texto) */
+.meal.with-photo .left {
+    align-items: center;
+}
+
+.icon > p {
+    font-size: 1.7rem;
+}
+
+.icon-inline {
+    font-size: 0.90rem;
+    margin-right: 4px;
+}
+
+.meal.with-photo .meal-photo {
+    width: 56px;
+    height: 56px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.meal.with-photo .info {
+    flex-direction: row;
+    align-items: center;
+}
+
+.meal-name {
+    font-weight: bold;
+}
+
+.mealtime {
+    font-size: 15px;
+    color: #7c7c7c;
+    font-weight: bold;
+}
+
+.badge-sent, .badge-pending{
+    font-weight: bold;
+    padding: 8px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.badge-sent{
+    background-color: #E7F7EC;
+    color: #5FB98A;
+}
+
+.badge-pending{
+    background-color: #FFF4E0;
+    color: #F0A94D;
+}
+
+.check-circle{
+    font-size: 1.2rem;
+}

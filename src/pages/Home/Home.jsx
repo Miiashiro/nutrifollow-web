@@ -3,8 +3,8 @@ import TopLayout from "../../components/TopLayout/TopLayout"
 import BottomLayout from "../../components/BottomLayout/BottomLayout"
 import api from "../../api"
 import "./home.css"
-import { FaRegCheckCircle } from "react-icons/fa";
 import { RingProgress, Text } from '@mantine/core'
+import CardMeal from "../../components/CardMeal/CardMeal"
 
 export default function Home() {
     const [mealPlan, setMealPlan] = useState([])
@@ -41,17 +41,9 @@ export default function Home() {
         }
     }
 
-    const iconTimeMeal = {
-        "Café da Manhã": "☀️",
-        "Lanche da Manhã": "🍎",
-        "Almoço": "🍽️",
-        "Lanche da Tarde": "☕",
-        "Jantar": "🌙"
-    }
-
     return (
         <div className="home">
-            <TopLayout/>
+            <TopLayout />
 
             <div className="interface">
                 <div className="card-mission">
@@ -72,32 +64,13 @@ export default function Home() {
 
                 <div className="card-meal">
                     {
-                        mealPlan.map((meal, index) => {
-                            const timeFormat = meal.time_meal.split(':').slice(0, 2).join(':');
-                            const icon = iconTimeMeal[meal.name]
-
-                            const regiter = mealRegister.find(r => r.name === meal.name)
-
-                            return (
-                                <div className="meal" key={index}>
-                                    <div className="left">
-                                        <div className="icon">
-                                            <p>{icon}</p>
-                                        </div>
-                                        <div className="description">
-                                            <p className="meal-name">{meal.name}</p>
-                                            <p className="mealtime">{timeFormat}</p>
-                                        </div>
-                                    </div>
-                                    <div className="right">
-                                        <div className={regiter?.status == "feito" ? "badge-sent" : "badge-pending"}>
-                                            <FaRegCheckCircle className="check-circle" />
-                                            <span>{regiter?.status ? "Enviado" : "Pendente"}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            )
-                        })
+                        mealPlan.map((meal, index) => (
+                            <CardMeal 
+                                index={index}
+                                name={meal.name} 
+                                time={meal.time_meal}
+                                mealRegister={mealRegister} />
+                        ))
                     }
                 </div>
             </div>
