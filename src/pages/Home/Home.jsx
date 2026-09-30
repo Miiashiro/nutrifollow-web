@@ -66,7 +66,7 @@ export default function Home() {
                     {
                         mealPlan.map((meal, index) => (
                             <CardMeal 
-                                index={index}
+                                key={index}
                                 name={meal.name} 
                                 time={meal.time_meal}
                                 mealRegister={mealRegister} />

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { MiniCalendar } from '@mantine/dates'
 import { Select } from '@mantine/core'
 import dayjs from 'dayjs'
+import 'dayjs/locale/pt-br';
 import "./history.css"
 import BottomLayout from '../../components/BottomLayout/BottomLayout'
 import api from "../../api"
@@ -102,10 +103,10 @@ export default function History() {
                         {
                             mealPlan.map((meal, index) => (
                                 <CardMeal
-                                    index={index}
+                                    key={index}
                                     name={meal.name}
                                     time={meal.time_meal}
-                                    image={"teste"}
+                                    
                                     mealRegister={mealRegister} />
                             ))
                         }

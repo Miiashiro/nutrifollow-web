@@ -19,7 +19,7 @@ export default function Login() {
 
             const response = await api.post('/login', dataLogin)
 
-            localStorage.setItem("user_id", response.data.id)
+            localStorage.setItem("token", response.data.token)
             localStorage.setItem("name", response.data.name)
 
             alert("Login com sucesso")
