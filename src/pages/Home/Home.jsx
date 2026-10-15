@@ -5,10 +5,12 @@ import api from "../../api"
 import "./home.css"
 import { RingProgress, Text } from '@mantine/core'
 import CardMeal from "../../components/CardMeal/CardMeal"
+import { useNavigate } from "react-router"
 
 export default function Home() {
     const [mealPlan, setMealPlan] = useState([])
     const [mealRegister, setMealRegister] = useState([])
+    const navigate = useNavigate()
 
     async function getData() {
         try {
@@ -51,6 +53,7 @@ export default function Home() {
                         <p>Sua Missão de Hoje</p>
                         <p>Registre todas as suas refeições e mantenha a constância</p>
                     </div>
+
                     <div className="graphic">
                         <RingProgress className="ringProgress"
                             size={100}
@@ -64,13 +67,18 @@ export default function Home() {
 
                 <div className="card-meal">
                     {
-                        mealPlan.map((meal, index) => (
-                            <CardMeal 
-                                key={index}
-                                name={meal.name} 
-                                time={meal.time_meal}
-                                mealRegister={mealRegister} />
-                        ))
+                        mealPlan ?
+                            mealPlan.map((meal, index) => (
+                                <CardMeal
+                                    key={index}
+                                    name={meal.name}
+                                    time={meal.time_meal}
+                                    mealRegister={mealRegister}
+                                    onClick={() => navigate(`/registro/${meal.id_plan}`, {
+                                        state: { name: meal.name, time: meal.time_meal }
+                                    })}
+                                />
+                            )) : <span>Sem refeição</span>
                     }
                 </div>
             </div>

@@ -1,7 +1,7 @@
 import { FaRegCheckCircle } from "react-icons/fa";
 import "./cardMeal.css"
 
-export default function CardMeal({name, time, mealRegister, image }) {
+export default function CardMeal({name, time, mealRegister, image, onClick }) {
     const iconTimeMeal = {
         "Café da Manhã": "☀️",
         "Lanche da Manhã": "🍎",
@@ -13,10 +13,15 @@ export default function CardMeal({name, time, mealRegister, image }) {
     const timeFormat = time.split(':').slice(0, 2).join(':');
     const icon = iconTimeMeal[name]
 
-    const regiter = mealRegister.find(r => r.name === name)
+    const register = mealRegister.find(r => r.name === name)
+    const isDone = register.status === "feito"
 
     return (
-        <div className={`meal ${image ? "with-photo" : ""}`}>
+        <div className={`meal ${image ? "with-photo" : ""}`} onClick={onClick}
+             style={{
+                pointerEvents: isDone ? "none" : "auto"
+             }}
+        > 
             <div className="left">
                 {image && (
                     <img src={image} alt={name} className="meal-photo" />
@@ -40,9 +45,9 @@ export default function CardMeal({name, time, mealRegister, image }) {
             </div>
 
             <div className="right">
-                <div className={regiter?.status == "feito" ? "badge-sent" : "badge-pending"}>
+                <div className={register?.status == "feito" ? "badge-sent" : "badge-pending"}>
                     <FaRegCheckCircle className="check-circle" />
-                    <span>{regiter?.status ? "Enviado" : "Pendente"}</span>
+                    <span>{register?.status ? "Enviado" : "Pendente"}</span>
                 </div>
             </div>
         </div>
