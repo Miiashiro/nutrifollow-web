@@ -14,18 +14,16 @@ api.interceptors.request.use((config) => {
     return config
 })
 
-// Interceptor de RESPOSTA — desloga automaticamente se o token for inválido/expirado
-// api.interceptors.response.use(
-//     (response) => response,
-//     (error) => {
-//         if (error.response?.status === 401) {
-//             localStorage.removeItem('token')
-//             localStorage.removeItem('user_id')
-//             localStorage.removeItem('name')
-//             window.location.href = '/'
-//         }
-//         return Promise.reject(error)
-//     }
-// )
+// desloga automaticamente se o token for inválido/expirado
+api.interceptors.response.use(
+    (response) => response,
+    (error) => {
+        if (error.response?.status === 401) {
+            localStorage.clear()
+            window.location.href = '/'
+        }
+        return Promise.reject(error)
+    }
+)
 
 export default api
